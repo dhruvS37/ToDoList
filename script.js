@@ -37,22 +37,24 @@ addBtn.onclick = ()=>{
 
 function displayTask(){
     let newList='';
-    todo.forEach((inputTask ,index)=> {
-        let isComplete="";
-        if(todo[index].status=="completed"){
-            isComplete="completed";
-        }
-        newList +=` <li>
-                        <p class="${isComplete}"> 
-                            ${inputTask.name}
-                        </p>
-                        <span>
-                            <i onclick="updateStatus(this)" class='fas fa-check-circle' style="color: rgb(159, 6, 213);" id="${index}">
-                            </i> <i onclick="edit('${inputTask.name}','${index}')" class="fas fa-edit"></i> 
-                            <i onclick="deleteTask(${index})" class='fas fa-trash' style="color: rgb(159, 6, 213);" ></i> 
-                        </span>
-                    </li> `
-    });
+    if(todo!=undefined){
+        todo.forEach((inputTask ,index)=> {
+            let isComplete="";
+            if(todo[index].status=="completed"){
+                isComplete="completed";
+            }
+            newList +=` <li>
+                            <p class="${isComplete}"> 
+                                ${inputTask.name}
+                            </p>
+                            <span>
+                                <i onclick="updateStatus(this)" class='fas fa-check-circle' style="color: rgb(159, 6, 213);" id="${index}">
+                                </i> <i onclick="edit('${inputTask.name}','${index}')" class="fas fa-edit"></i> 
+                                <i onclick="deleteTask(${index})" class='fas fa-trash' style="color: rgb(159, 6, 213);" ></i> 
+                            </span>
+                        </li> `
+        });
+    }
     todoList.innerHTML=newList;
     inputBox.value = "";
 }
