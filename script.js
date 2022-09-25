@@ -22,7 +22,7 @@ addBtn.onclick = ()=>{
    
     if(!isEdited){
         if(todo==null){
-            todo=[]
+            todo=[];
         }
         let taskInfo={name:data,status:"pending"};
         todo.push(taskInfo);
